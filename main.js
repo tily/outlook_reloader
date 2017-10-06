@@ -21,8 +21,19 @@ const main = function() {
 };
 
 const reload = function() {
-  log("Reloading Outlook.");
-  window.location.reload(true);
+  if(navigator.onLine) {
+    window.location.reload(true);
+  } else {
+    console.log("[Outlook Reloader] Is not online. Will retry after 5 seconds ...");
+    let timerId = setInterval(function() {
+      if(navigator.onLine) {
+        clearInterval(timerId);
+        window.location.reload(true);
+      } else {
+        console.log("[Outlook Reloader] Is not online. Will retry after 5 seconds ...");
+      }
+    }, 5000);
+  }
 };
 
 const log = function(text) {
