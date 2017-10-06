@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Outlook Reloader",
   "description": "This extension will reload the web outlook (https://outlook.office.com/owa/) periodically.",
-  "version": "1.0",
+  "version": "1.0.1",
   "content_scripts": [
     {
       "matches": [
