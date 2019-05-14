@@ -1,5 +1,6 @@
 const main = function() {
-  if(window.location.href.match(/^https:\/\/outlook\.office\.com\/owa\//)) {
+  if(window.location.href.match(/^https:\/\/outlook\.office\.com\/mail\//) ||
+     window.location.href.match(/^https:\/\/outlook\.office365\.com\/calendar\//)) {
     chrome.storage.sync.get({"interval": 10, "enabled" : true}, function(result) {
       if(!result.enabled) {
         console.log("[Outlook Reloader] Disabled, will not reload.");
